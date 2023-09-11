@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbabel_core_demo=self.webpackChunkbabel_core_demo||[]).push([["utils-src_utils_foo_js-src_utils_math_js"],{497:function(o,n,t){function e(){console.log("foo")}t.d(n,{R:function(){return e}})},437:function(o,n,t){function e(){console.log("testMath")}t.d(n,{A:function(){return e}})}}]);

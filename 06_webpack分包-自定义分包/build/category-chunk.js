@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbabel_core_demo=self.webpackChunkbabel_core_demo||[]).push([["category"],{479:function(e,o,t){t.r(o),t.d(o,{category:function(){return n}});var c=document.createElement("h1");function n(){console.log("hello category")}c.textContent="category page",document.body.append(c)}}]);
