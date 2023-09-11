@@ -9,10 +9,18 @@ module.exports = {
   // entry: "./src/index.js",
   // 配置多入口
   entry: {
-    index: "./src/index.js",
-    main: "./src/main.js",
+    index: {
+      import: "./src/index.js",
+      // 指定需要使用的共享包
+      dependOn: "shared"
+    },
+    main: {
+      import: "./src/main.js",
+      dependOn: "shared"
+    },
     //指定共享的第三方包，防止多次引用引起性能浪费
-    shared:['axios','dayjs']
+    // shared可以以不同的属性名写入多个
+    shared: ["axios", "react", "react-dom"]
   },
 
   output: {
