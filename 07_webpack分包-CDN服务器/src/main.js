@@ -1,10 +1,12 @@
+// 如果配置了CDN资源并且在webpack配置中设置了externals，那么真实调用将采用CDN的资源，
+// 而非本地的引入
 import axios from "axios";
-import react from "react";
+import vue from "vue";
 
 import { testMath } from "./utils/math";
 import { foo } from "./utils/foo";
 // 使用axios
-axios.get("/api/info").then(res => {
+axios.get("http://139.199.212.233:8000/api/moment/list").then(res => {
   console.log(res);
 });
 const btn1 = document.createElement("button");

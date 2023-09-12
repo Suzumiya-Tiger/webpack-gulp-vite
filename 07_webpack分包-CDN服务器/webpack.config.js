@@ -8,6 +8,14 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts"]
   },
+  // 排除某些包不需要进行打包操作
+  externals: {
+    react: "React",
+    // key属性名：排除的框架名称
+    // import axios from 'axios' 排除框架的key属性名要和'axios'保持一致
+    // 值属性名：必须严格等于官方框架引入资源的名称，具体以CDN为准，不允许自行定义
+    axios: "axios"
+  },
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "./build"),
@@ -28,7 +36,7 @@ module.exports = {
     compress: true,
     proxy: {
       "/api": {
-        target: "http://localhost:9000",
+        target: "http://139.199.212.233:8000/",
         pathRewrite: {
           "^/api": ""
         },
