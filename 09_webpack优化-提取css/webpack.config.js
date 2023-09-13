@@ -2,10 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { ProvidePlugin } = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   // 生产模式下会自动为被打包好的代码进行压缩
-  mode: "production",
-  devtool: "source-map",
+  mode: "development",
+  devtool: false,
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts"]
   },
@@ -23,9 +25,9 @@ module.exports = {
     // 以下操作步骤为手动分包
     // 利用placeholder来在[]中进行占位操作
     // name会根据不同的入口文件名称进行分类打包，生成对应的打包文件
-    filename: "[name]-bundle.js",
+    filename: "js/[name]-bundle.js",
     // 针对单独分包的文件进行命名
-    chunkFilename: "[name]-chunk.js",
+    chunkFilename: "js/[name]-chunk.js",
     clean: true
     // 配置publicPath可以为打包好的文件添加一个前缀路径，使得对打包资源的地址引入可以自动配置
     // publicPath:"CDN服务器地址"
@@ -119,8 +121,19 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-
         use: "babel-loader"
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          // MiniCssExtractPlugin.loader是以link的形式插入到index.html之中，常用于生产环境
+          MiniCssExtractPlugin.loader,
+          // style-loader是以style内联的形式插入到index.html之中,常用语开发环境
+          // "style-loader",
+          "css-loader",
+          "less-loader"
+        ]
       }
     ]
   },
@@ -134,6 +147,10 @@ module.exports = {
     new ProvidePlugin({
       axios: ["axios", "default"],
       dayjs: "dayjs"
+    }), // 完成css代码的抽离
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
+      chunkFilename: "css/[name].css"
     })
   ]
 };

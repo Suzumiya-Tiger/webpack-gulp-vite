@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkbabel_core_demo=self.webpackChunkbabel_core_demo||[]).push([[829],{497:function(n,o,e){function c(){console.log("foo")}e.d(o,{R:function(){return c}})},437:function(n,o,e){function c(){console.log("testMath")}e.d(o,{A:function(){return c}})}}]);
-//# sourceMappingURL=829-utils.js.map

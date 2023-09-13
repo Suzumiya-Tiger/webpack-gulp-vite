@@ -1,0 +1,40 @@
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@6.8.1_webpack@5.88.2/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/less-loader@11.1.3_less@4.2.0_webpack@5.88.2/node_modules/less-loader/dist/cjs.js!./src/css/index.less ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/* reset.css样式重置文件 */
+/* margin/padding重置 */
+body,
+h1,
+h2,
+h3,
+ul,
+ol,
+li,
+p,
+dl,
+dt,
+dd {
+  padding: 0;
+  margin: 0;
+}
+/* a元素重置 */
+a {
+  text-decoration: none;
+  color: #333;
+}
+/* img的vertical-align重置 */
+img {
+  vertical-align: top;
+}
+/* ul, ol, li重置 */
+ul,
+ol,
+li {
+  list-style: none;
+}
+/* 对斜体元素重置 */
+i,
+em {
+  font-style: normal;
+}
+

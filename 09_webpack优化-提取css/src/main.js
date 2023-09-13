@@ -5,6 +5,7 @@ import vue from "vue";
 import "./abc";
 import { testMath } from "./utils/math";
 import { foo } from "./utils/foo";
+import "./css/index.less";
 // 使用axios
 axios.get("http://139.199.212.233:80/moment/list").then(res => {
   console.log(res);
