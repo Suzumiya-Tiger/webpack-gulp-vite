@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "propertiles": {
+    "presets": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

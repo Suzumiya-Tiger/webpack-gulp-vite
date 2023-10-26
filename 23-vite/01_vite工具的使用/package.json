@@ -1,0 +1,25 @@
+{
+  "name": "01_vite_tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.4.0",
+    "less": "^4.2.0",
+    "postcss": "^8.4.31",
+    "postcss-preset-env": "^9.1.4",
+    "vite": "^4.4.11"
+  }
+}

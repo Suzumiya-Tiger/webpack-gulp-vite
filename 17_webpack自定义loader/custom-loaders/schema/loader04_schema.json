@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "请输入名称并且是字符串类型"
+    },
+    "age": {
+      "type": "number",
+      "description": "请输入年龄并且是数字类型"
+    }
+  }
+}
