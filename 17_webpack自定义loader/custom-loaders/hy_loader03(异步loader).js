@@ -17,7 +17,6 @@ module.exports = function (content, map) {
      可以使用 this.async() 方法获取一个用于传递结果的回调函数。 */
   const callback = this.async();
   // 异步操作
-  // 该代码的后续函数不会等待定时器结束，而是默认 return undefined
   setTimeout(() => {
     console.log("hy_loader03:" + content);
     callback(null, content + "aaa");

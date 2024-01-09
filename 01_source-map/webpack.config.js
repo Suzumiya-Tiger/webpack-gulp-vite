@@ -5,7 +5,7 @@ module.exports = {
   // production生成的bundle文件会更加简洁
 
   // devtool本质上是一种调试工具
-  devtool: "eval",
+  devtool: "cheap-module-source-map",
   /**
    * 1.false 不生成sourcemap文件
    * 2.none production默认生成，不允许定义该属性

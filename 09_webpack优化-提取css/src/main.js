@@ -1,8 +1,6 @@
 // 如果配置了CDN资源并且在webpack配置中设置了externals，那么真实调用将采用CDN的资源，
 // 而非本地的引入
 import axios from "axios";
-import vue from "vue";
-import "./abc";
 import { testMath } from "./utils/math";
 import { foo } from "./utils/foo";
 import "./css/index.less";

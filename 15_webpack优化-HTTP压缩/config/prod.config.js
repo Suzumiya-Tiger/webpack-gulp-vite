@@ -99,6 +99,31 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      // 二次生成的html内容变化才进行重新压缩
+      cache: true,
+      minify: isProduction
+        ? {
+            //移除注释
+            removeComment: true,
+            // 移除空的属性(设置为空字符串，比如class="")
+            removeEmptyAttributes: true,
+            // 移除多余的配置属性
+            removeRedundantAttributes: true,
+            // 移除空行(空白字符)
+            collapseWhitespace: true,
+            // 压缩html内部内联的css(去除空行)
+            minifyCSS: true,
+            // 压缩JS
+            minifyJS: {
+              mangle: {
+                toplevel: true
+              }
+            }
+          }
+        : false
+    }),
     // 完成css代码的抽离
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
@@ -125,7 +150,7 @@ module.exports = {
     new CompressionPlugin({
       test: /\.js$|\.css$/,
       // minRatio:0.8, 此项为压缩比例最小值，压缩结果大于该值才会压缩，默认值是0.8，默认自动启用该数值
-      algorithm:"gzip"
+      algorithm: "gzip"
     })
   ]
 };

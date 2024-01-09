@@ -6,7 +6,7 @@ import "./abc";
 import { testMath } from "./utils/math";
 import { foo } from "./utils/foo";
 // 使用axios
-axios.get("http://139.199.212.233:80/moment/list").then(res => {
+axios.get("http://api/moment/list").then(res => {
   console.log(res);
 });
 const btn1 = document.createElement("button");

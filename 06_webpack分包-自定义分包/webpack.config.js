@@ -11,15 +11,10 @@ module.exports = {
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "./build"),
-    // 以下操作步骤为手动分包
-    // 利用placeholder来在[]中进行占位操作
-    // name会根据不同的入口文件名称进行分类打包，生成对应的打包文件
     filename: "[name]-bundle.js",
     // 针对单独分包的文件进行命名
     chunkFilename: "[name]-chunk.js",
     clean: true
-    // 配置publicPath可以为打包好的文件添加一个前缀路径，使得对打包资源的地址引入可以自动配置
-    // publicPath:"CDN服务器地址"
   },
   devServer: {
     static: ["public", "content"],

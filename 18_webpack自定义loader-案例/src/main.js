@@ -1,6 +1,7 @@
 // md文件被解析完成后，生成代码，从而可以正确获取code
 import code from "./doc.md";
-import "./css/code.css";
+import "highlight.js/styles/default.css";
+// import "./css/code.css";
 const message = "hello world";
 console.log(message);
 

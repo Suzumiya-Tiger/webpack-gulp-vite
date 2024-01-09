@@ -6,13 +6,12 @@ module.exports = function (content) {
   marked.setOptions({
     highlight: function (code,lang) {
       // 传参类型:语言,代码
-      return hljs.highlight(code,{lang}).value;
+      return hljs.highlight(lang,code).value;
     }
   });
   // 将md语法转化成html的元素结构
   const htmlContent = marked(content);
   // 返回的结果必须是模块化的内容
-
   // 先转换为字符串形式
   const innerContent = "`" + htmlContent + "`";
   // 再转化为JavaScript代码

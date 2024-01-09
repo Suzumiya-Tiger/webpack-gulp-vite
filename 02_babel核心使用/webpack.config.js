@@ -3,21 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
-  // development production
-  // production生成的bundle文件会更加简洁
-
-  // devtool本质上是一种调试工具
   devtool: false,
-  /**
-   * 1.false 不生成sourcemap文件
-   * 2.none production默认生成，不允许定义该属性
-   * 3.eval development环境使用，占用性能小，不生成具体的sourcemap文件，可大概定义出错处
-   * 4.source-map生成完整的source-map文件，精准还原具体的构成代码并生成文件，常用于production
-   * development环境用eval足矣
-   * 5.cheap-source-map(dev环境)：低开销，更高效
-   * 6.cheap-module-source-map不会再打包后的source-map省去对应的空行，使得定位完全一致，非常精准
-   * 7.hidden-source-map隐藏bundle.js的引导注释，需要用时重新加回来注释就行了
-   */
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts"]
   },
@@ -42,14 +28,14 @@ module.exports = {
         // 在webpack中结合使用Babel-loader对代码进行编译转化
         use: {
           loader: "babel-loader"
+          /* 注意：options的配置移入babel.config.js单独配置文件进行配置 */
         }
       },
       // 利用ts-loader处理ts文件
-
       /* tips:
           在ts代码里面可能会包含了需要应用polyfill的代码
           ts-loader中的typescript complier(tsc)不包含polyfill
-          所以不要用ts-loader编译ts代码
+          所以不要用ts-loader直接编译ts代码
       */
       {
         test: /\.ts$/,

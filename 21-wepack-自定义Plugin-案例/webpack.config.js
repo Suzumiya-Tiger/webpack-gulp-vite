@@ -1,7 +1,13 @@
 const path = require("path");
 const HtmlwebpackPlugin = require("html-webpack-plugin");
 const AutoUploadWebpackPlugin = require("./plugins/AutoUploadWebpackPlugin");
-const { PASSWORD, SERVER_HOST, USER_NAME, REMOTE_PATH } = require("./plugins/config");
+const {
+  PASSWORD,
+  SERVER_HOST,
+  USER_NAME,
+  REMOTE_PATH,
+  PORT
+} = require("./plugins/config");
 module.exports = {
   mode: "production",
   entry: "./src/main.js",
@@ -13,6 +19,7 @@ module.exports = {
     new HtmlwebpackPlugin(),
     new AutoUploadWebpackPlugin({
       host: SERVER_HOST,
+      PORT: PORT,
       username: USER_NAME,
       password: PASSWORD,
       remotePath: REMOTE_PATH

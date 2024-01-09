@@ -20,6 +20,16 @@ pnpm run build打包后会打印出时间
 
 pnpm add webpack-bundle-analyzer -D
 
-插入生产环境配置之中进行配置，同时在package.json中做以下配置：
+在prod.config.js进行配置，同时在package.json中做以下配置：
 
-  "build": "webpack --config ./config/comm.config.js --env production **--profile --json**",
+```js
+// 打包文件分析
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+......
+......
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
+```
+
+打包后会自动打开一个网站分析打包后文件大小。

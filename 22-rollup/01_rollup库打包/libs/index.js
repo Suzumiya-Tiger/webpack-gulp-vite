@@ -1,6 +1,6 @@
 import {sum,mul} from './utils/math'
 import { formatPrice } from './utils/format'
- import _ from 'lodash'
+import _ from 'lodash'
 
 function foo(){
     console.log('foo exection~');

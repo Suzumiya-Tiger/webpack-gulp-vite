@@ -1,6 +1,4 @@
 const { NodeSSH } = require("node-ssh");
-const { PASSWORD, SERVER_HOST, USER_NAME } = require("./config");
-
 class AutoUploadWebpackPlugin {
   constructor(options) {
     // pnpm add node-ssh -D
@@ -8,7 +6,9 @@ class AutoUploadWebpackPlugin {
     //   options作为被传递的参数
     this.options = options;
   }
+  //插件的注册需要依赖内置的apply方法
   apply(compiler) {
+    console.log("AutoUploadWebpackPlugin被注册");
     //   完成的事情：注册hooks监听事件
     // 该插件触发的时机：等待assets输出到output目录上时，完成自动上传的功能
     // webpack官网叙述了afterEmit是一个输出assets到output目录之后执行的hook，这正是一个好时机
@@ -17,8 +17,8 @@ class AutoUploadWebpackPlugin {
       // 1.获取输出的文件夹路径(其中的资源)
       const outputPath = compilation.outputOptions.path;
       console.log(outputPath);
+      
       //   2.连接远程服务器SSH
-
       await this.connectServer();
       //   3.删除原有的文件夹内容
       const remotePath = this.options.remotePath;
@@ -31,7 +31,6 @@ class AutoUploadWebpackPlugin {
       //   完成所有操作后需要调用callback，不理解就回头看第20章
       callback();
     });
-    console.log("AutoUploadWebpackPlugin被注册");
   }
 
   async connectServer() {

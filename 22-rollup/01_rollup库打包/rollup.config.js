@@ -8,48 +8,47 @@ const { babel } = require("@rollup/plugin-babel");
 const { terser } = require("rollup-plugin-terser");
 //  npx rollup -c
 module.exports = {
-	// 入口
-	input: "./libs/index.js",
-	// 出口
-	output: {
-		// umd
+  // 入口
+  input: "./libs/index.js",
+  // 出口
+  output: {
+    // 格式：umd规范
+    format: "umd",
+    // 全局名称
+    name: "whyUtils",
+    file: "./build/bundle.umd.js",
+    // 解决lodash没有放进打包文件的问题
+    globals: {
+      lodash: "_"
+    }
 
-		// 格式
-		format: "umd",
-		name: "whyUtils",
-		file: "./build/bundle.umd.js",
-		// 解决lodash没有放进打包文件的问题
-		globals: {
-			lodash: "_",
-		},
-
-		// // amd
-		// {
-		// 	// 格式
-		// 	format: "amd",
-		// 	file: "./build/bundle.amd.js",
-		// },
-		// // cjs
-		// {
-		// 	// 格式
-		// 	format: "cjs",
-		// 	file: "./build/bundle.cjs.js",
-		// },
-		// // iife(浏览器)
-		// {
-		// 	// 格式
-		// 	format: "iife",
-		// 	file: "./build/bundle.browser.js",
-		// },
-	},
-	external: ["lodash"],
-	plugins: [
-		commonjs(),
-		nodeResolve(),
-		babel({
-			babelHelpers: "bundled",
-			exclude: /node_modules/,
-		}),
-		terser(),
-	],
+    // // amd
+    // {
+    // 	// 格式
+    // 	format: "amd",
+    // 	file: "./build/bundle.amd.js",
+    // },
+    // // cjs
+    // {
+    // 	// 格式
+    // 	format: "cjs",
+    // 	file: "./build/bundle.cjs.js",
+    // },
+    // // iife(浏览器)
+    // {
+    // 	// 格式
+    // 	format: "iife",
+    // 	file: "./build/bundle.browser.js",
+    // },
+  },
+  external: ["lodash"],
+  plugins: [
+    commonjs(),
+    nodeResolve(),
+    babel({
+      babelHelpers: "bundled",
+      exclude: /node_modules/
+    }),
+    terser()
+  ]
 };

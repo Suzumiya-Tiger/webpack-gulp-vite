@@ -1,14 +1,16 @@
 # 内容回顾
+
 ## 一. webpack基本配置
+
 * 入口配置
 * 出口配置
 * loader使用
 
-
 ## 二. webpack服务器搭建
+
 * webpack-dev-server
 
-```js
+```javascript
 const message = "Hello World"
 
 const foo = () => {

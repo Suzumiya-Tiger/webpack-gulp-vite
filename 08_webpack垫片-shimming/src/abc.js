@@ -4,7 +4,7 @@
    webpack配置中添加ProvidePlugin(webpack内置)来全局引入，这个设置一般是不用的
     */
 console.log(axios);
-axios.get("http://139.199.212.233:80/moment/list").then(res => {
+axios.get("http://api/moment/list").then(res => {
   console.log(res);
 });
 console.log(dayjs(new Date()).format("YYYY-MM-DD HH:mm:ss"));
